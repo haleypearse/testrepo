@@ -1,30 +1,9 @@
 import React, { Component } from "react";
 import Contact from "../Components/Contact";
+import { Consumer } from "../context";
+// import { tsThisType } from "../../node_modules/@babel/types";
 
 export default class Contacts extends Component {
-  state = {
-    contacts: [
-      {
-        id: 1,
-        name: "J Pepper",
-        email: "jpep@sweethots.com",
-        phone: "1234567890"
-      },
-      {
-        id: 2,
-        name: "J Squepper",
-        email: "jspep@sweethots.com",
-        phone: "1234567890"
-      },
-      {
-        id: 3,
-        name: "J Pwepper",
-        email: "jpwep@sweethots.com",
-        phone: "1234567890"
-      }
-    ]
-  };
-
   deleteContact = id => {
     const { contacts } = this.state;
 
@@ -36,18 +15,23 @@ export default class Contacts extends Component {
   };
 
   render() {
-    const { contacts } = this.state;
-
     return (
-      <React.Fragment>
-        {contacts.map(contact => (
-          <Contact
-            key={contact.key}
-            contact={contact}
-            deleteClickHandler={this.deleteContact.bind(this, contact.id)}
-          />
-        ))}
-      </React.Fragment>
+      <Consumer>
+        {value => {
+          const { contacts } = value;
+          return (
+            <React.Fragment>
+              {contacts.map(contact => (
+                <Contact
+                  key={contact.key}
+                  contact={contact}
+                  deleteClickHandler={this.deleteContact.bind(this, contact.id)}
+                />
+              ))}
+            </React.Fragment>
+          );
+        }}
+      </Consumer>
     );
   }
 }
