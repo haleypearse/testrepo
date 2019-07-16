@@ -41,7 +41,7 @@ export class Provider extends Component {
         name: "J Pwepper",
         email: "jpwep@sweethots.com",
         phone: "1234567890"
-      }
+      },
       {
         id: 4,
         name: "H Pwepper",
