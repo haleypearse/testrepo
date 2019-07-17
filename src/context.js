@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-// import { statement } from "../node_modules/@types/babel__template";
-// import Contacts from "./Components/Contacts";
-// import Header from "./Components/Header";
-
-// import {Provider } from './c'
 
 const Context = React.createContext();
 
@@ -15,6 +10,11 @@ const reducer = (state, action) => {
         contacts: state.contacts.filter(
           contact => contact.id !== action.payload
         )
+      };
+    case "ADD_CONTACT":
+      return {
+        ...state,
+        contacts: [action.payload, ...state.contacts]
       };
     default:
       return state;
