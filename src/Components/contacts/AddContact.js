@@ -15,11 +15,20 @@ export default class AddContact extends Component {
     const { name, email, phone } = this.state;
 
     const newContact = {
+      id: uuid(),
       name,
       email,
       phone
     };
+
+    dispatch({ type: "ADD_CONTACT", payload: newContact });
     console.log(this.state);
+
+    this.setState({
+      name: "",
+      email: "",
+      phone: ""
+    });
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
