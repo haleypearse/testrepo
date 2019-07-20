@@ -32,6 +32,7 @@ export default class AddContact extends Component {
     dispatch({ type: "ADD_CONTACT", payload: newContact });
     console.log(this.state);
 
+    //clear the state
     this.setState({
       name: "",
       email: "",
@@ -68,6 +69,7 @@ export default class AddContact extends Component {
                     placeholder="Enter Email"
                     value={email}
                     onChange={this.onChange}
+                    error={errors.email}
                   />
                   <TextInputGroup
                     label="Phone"
