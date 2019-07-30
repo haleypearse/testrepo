@@ -4,6 +4,7 @@ import Contacts from "./Components/contacts/Contacts";
 import AddContact from "./Components/contacts/AddContact";
 import Header from "./Components/layout/Header";
 import About from "./Components/pages/About";
+import NotFound from "./Components/pages/NotFound";
 
 import { Provider } from "./context";
 
@@ -14,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Provider>
-        {/* <Router>
+        <Router>
           <div className="App">
             <Header branding="Contact Manager" />
             <div className="container">
@@ -22,11 +23,12 @@ class App extends Component {
                 <Route exact path="/" component={Contacts} />
                 <Route exact path="/contact/add" component={AddContact} />
                 <Route exact path="/about" component={About} />
+                <Route component={NotFound} />
               </Switch>
             </div>
           </div>
-        </Router> */}
-        <Contacts />
+        </Router>
+        {/* <Contacts /> */}
       </Provider>
     );
   }
